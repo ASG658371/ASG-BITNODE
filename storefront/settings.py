@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',#display one time notifications
     'django.contrib.staticfiles',#display static files
-    'playground'#everytime you create a app you need to add it here
+
+    'playground',#everytime you create a app you need to add it here
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
