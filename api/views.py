@@ -1,20 +1,22 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from playground.models import test
-from .serializers import testSerializer
+from playground.models import *
+from .serializers import CollegeSerializer
 
 class HelloWorldView(APIView):
    
    def get(self, request):
-    items=test.objects.all()
-    serializer = testSerializer(items, many=True)
+    items=Colleges.objects.all()
+    serializer = CollegeSerializer(items, many=True)
     return Response(serializer.data)
 
    def post(self, request):
-    serializer = testSerializer(data=request.data)
+    serializer = CollegeSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()    
-    return Response(serializer.data)
+        return Response(serializer.data)
+    else:
+        return Response(serializer.errors)
 
 
 # Create your views here.

@@ -1,8 +1,9 @@
 from dataclasses import fields
 from rest_framework import serializers
-from playground.models import test
+from playground.models import Colleges
 
-class testSerializer(serializers.ModelSerializer):
+
+class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
-        model=test
-        fields='__all__'
+        model = Colleges
+        fields = '__all__'
