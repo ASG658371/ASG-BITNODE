@@ -3,18 +3,18 @@ from rest_framework import serializers
 from playground.models import *
 
 
-class CollegesSerializer(serializers.ModelSerializer):
+class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Colleges
+        model = College
         fields = '__all__'
     
-class SubjectsSerializer(serializers.ModelSerializer):
+class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Subjects
+        model = Subject
         fields = '__all__'
 
-class StudentsSerializer(serializers.ModelSerializer):
+class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Students
+        model = Student
         fields = '__all__'
          

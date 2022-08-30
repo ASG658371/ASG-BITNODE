@@ -12,6 +12,8 @@ from rest_framework.routers import DefaultRouter
 # urlpatterns = router.urls
 urlpatterns= [
 
-    path('colleges/<str:pk>', views.CollegesView.as_view(), name='colleges')
+    path('college/', views.CollegeView.as_view(), name='college'),
+    path('college/<str:pk>/', views.CollegeView.as_view(), name='college')
+    
 ]
 # urlpatterns = format_suffix_patterns(urlpatterns)
