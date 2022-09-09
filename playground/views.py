@@ -12,6 +12,5 @@ from django.http import HttpResponse
 #     #send email
 #     #return HttpResponse('Hello World') # Will send a string response on the page
 #     return render(request, 'hello.html', {'name': 'Arpit'}) # Will send a template response on the page.
-
-def upload(request):
-    return render(request, 'upload.html')
+class FE(TemplateView):
+    template_name = 'upload.html'

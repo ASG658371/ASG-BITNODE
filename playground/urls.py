@@ -3,5 +3,5 @@ from . import views
 
 #URLconf
 urlpatterns = [
-        path('upload/',views.upload, name='upload'),
+        path('',views.FE.as_view(), name='FE'),
 ]

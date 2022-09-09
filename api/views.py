@@ -1,4 +1,7 @@
 from rest_framework.response import Response
+from django.views.generic import TemplateView
+from django.shortcuts import render
+from rest_framework.viewsets import ViewSet
 from rest_framework.views import APIView
 from playground.models import *
 from .serializers import *
@@ -117,6 +120,19 @@ class StudentView(APIView):
             stud.delete()
             return Response("Item Successfully Deleted")
 
+class FE(TemplateView):
+    template_name = 'index.html'
+
+class UploadViewSet(ViewSet):
+    serializer_class = UploadSerializer
+    def list(self, request):
+        return Response("GET API")
+
+    def create(self, request):
+        file_uploaded = request.FILES.get('file_uploaded')
+        content_type = file_uploaded.content_type
+        response = "Uploaded Successfully, A {} file".format(content_type)
+        return Response(response)
     
     
     

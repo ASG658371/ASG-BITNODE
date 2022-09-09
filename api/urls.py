@@ -1,19 +1,18 @@
 from urllib import request
-from rest_framework.urlpatterns import format_suffix_patterns
-from django.urls import path
+from django.urls import path, include
 from . import views
-from api.views import *
-from rest_framework.routers import DefaultRouter
+from .views import *
+from rest_framework import routers
 
-# router = DefaultRouter()
+router = routers.DefaultRouter()
+router.register(r'upload', UploadViewSet, basename="upload")
 
-# router.register(r'', views.CollegesView, basename='colleges')
-
-# urlpatterns = router.urls
 urlpatterns= [
 
     path('college/', views.CollegeView.as_view(), name='college'),
     path('subject/', views.SubjectView.as_view(), name='subject'),
     path('student/', views.StudentView.as_view(), name='student'),    
+    path('',views.FE.as_view(), name='FE'),
+    path('upload/', include(router.urls)),
+    
 ]
-# urlpatterns = format_suffix_patterns(urlpatterns)
